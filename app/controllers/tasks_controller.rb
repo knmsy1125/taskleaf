@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.where(user_id: current_user.id)
+    @tasks = current_user.tasks.order(created_at: :desc)
   end
 
   def show
